@@ -7,8 +7,13 @@ import dice from "@/public/images/icon-dice.svg";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
+interface Advice {
+  id: number;
+  advice: string;
+}
+
 const page = () => {
-  const [advice, setAdvice] = useState("");
+  const [advice, setAdvice] = useState<Advice>({ id: 0, advice: "" });
 
   const getAdvice = async () => {
     const response = await axios.get("https://api.adviceslip.com/advice");
